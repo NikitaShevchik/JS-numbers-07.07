@@ -1,39 +1,11 @@
 "use strict"
 const gameBoard = document.querySelector('.guess__board')
+/*---------Данные для игры----------*/
+let colsRows = [2, 2]; // колонки и ряды
+let maxNumber = colsRows[0] * colsRows[1]; //нужно для будущего. Максимальное число (колонки * ряды)
+let randomNumbers = []; // пустой массив для записи сгенерированных чисел (количество чисел - maxNumber)
 
-let table = [5, 5];
-let maxNumber = table[0] * table[1];
-let randomNumbers = [];
-
-function arrInk(arr) {
-    arr = [arr[0] + 1, arr[1] + 1]
-    maxNumber = arr[0] * arr[1];
-}
-var ran = (Math.random() * maxNumber).toFixed(0);
-while (ran == 0) {
-    ran = (Math.random() * maxNumber).toFixed(0);
-}
-
-function randomArrayGen(arrEmpty) {
-    arrEmpty.push(tes());
-    while (arrEmpty.length != maxNumber) {
-        for (let i = 0; i < maxNumber; i++) {
-            var nu = tes();
-            if (!arrEmpty.includes(nu)) {
-                arrEmpty.push(nu);
-            }
-        }
-    }
-}
-function tes() {
-    var ran = (Math.random() * maxNumber).toFixed(0);
-    while (ran == 0) {
-        ran = (Math.random() * maxNumber).toFixed(0);
-    }
-    return ran;
-}
-randomArrayGen(randomNumbers)
-
+/*---------Генерация игрового поля----------*/
 function boardGenerator(arr, arrRandoms) {
     gameBoard.innerHTML = '';
     function boardRowsColsGenerator(arr) {
@@ -47,14 +19,41 @@ function boardGenerator(arr, arrRandoms) {
             }
         }
     }
-    boardRowsColsGenerator(arr)
+    function randomArrayGen(arrEmpty) {
+        arrEmpty.push(randomNumber());
+        while (arrEmpty.length != maxNumber) {
+            for (let i = 0; i < maxNumber; i++) {
+                var nu = randomNumber();
+                if (!arrEmpty.includes(nu)) {
+                    arrEmpty.push(nu);
+                }
+            }
+        }
+        function randomNumber() {
+            var ran = (Math.random() * maxNumber).toFixed(0);
+            while (ran == 0) {
+                ran = (Math.random() * maxNumber).toFixed(0);
+            }
+            return ran;
+        }
+    }
+
     function numberInItems(randomArr) {
         const allItems = gameBoard.querySelectorAll('.board__item');
         for (let i = 0; i < allItems.length; i++) {
             allItems[i].innerHTML = randomArr[i];
         }
     }
+    boardRowsColsGenerator(arr)
+    randomArrayGen(arrRandoms)
     numberInItems(arrRandoms)
 }
+/*---------Увеличитель массива рядов и колонок----------*/
+function arrInk() {
+    colsRows = [colsRows[0] + 1, colsRows[1] + 1];
+    maxNumber = colsRows[0] * colsRows[1];
+}
+arrInk()
+console.log(colsRows)
 
-boardGenerator(table, randomNumbers)
+boardGenerator(colsRows, randomNumbers)

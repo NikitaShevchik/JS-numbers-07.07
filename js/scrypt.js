@@ -1,15 +1,14 @@
 "use strict"
 const gameBoard = document.querySelector('.guess__board')
 
-let table = [2, 2];
+let table = [5, 5];
 let maxNumber = table[0] * table[1];
-let rands = [];
+let randomNumbers = [];
 
 function arrInk(arr) {
     arr = [arr[0] + 1, arr[1] + 1]
     maxNumber = arr[0] * arr[1];
 }
-
 var ran = (Math.random() * maxNumber).toFixed(0);
 while (ran == 0) {
     ran = (Math.random() * maxNumber).toFixed(0);
@@ -25,7 +24,6 @@ function randomArrayGen(arrEmpty) {
             }
         }
     }
-    console.log(arrEmpty)
 }
 function tes() {
     var ran = (Math.random() * maxNumber).toFixed(0);
@@ -34,10 +32,9 @@ function tes() {
     }
     return ran;
 }
-randomArrayGen(rands)
+randomArrayGen(randomNumbers)
 
-
-function boardGenerator(arr) {
+function boardGenerator(arr, arrRandoms) {
     gameBoard.innerHTML = '';
     function boardRowsColsGenerator(arr) {
         for (let i = 0; i < arr[0]; i++) {
@@ -51,9 +48,13 @@ function boardGenerator(arr) {
         }
     }
     boardRowsColsGenerator(arr)
-    function numberInItems() {
-
+    function numberInItems(randomArr) {
+        const allItems = gameBoard.querySelectorAll('.board__item');
+        for (let i = 0; i < allItems.length; i++) {
+            allItems[i].innerHTML = randomArr[i];
+        }
     }
+    numberInItems(arrRandoms)
 }
 
-boardGenerator(table)
+boardGenerator(table, randomNumbers)

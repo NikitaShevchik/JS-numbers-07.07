@@ -3,6 +3,9 @@
 // Подключение шрифтов
 @import url('https://fonts.googleapis.com/css2?family=Kantumruy+Pro&display=swap');
 //SCSS
+body{
+    background-color: #2e2828;
+}
 .header {
 
     &__info {
@@ -24,6 +27,9 @@
 .guess {
 
     &__body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
 
     &__board {
@@ -36,8 +42,11 @@
     }
 
     &__item {
+        cursor: pointer;
         font-family: 'Kantumruy Pro', sans-serif;
-        border: 1px solid black;
+        color: #2e2828;
+        background-color: #FEF4F4;
+        border-radius: 5px;
         width: 50px;
         height: 50px;
         margin: 2.5px;
@@ -45,5 +54,11 @@
         justify-content: center;
         align-items: center;
         font-size: 22px;
+        transition: background-color 0.3s linear;
     }
+}
+.board__item._selected{
+    transition: background-color 0.3s linear;
+    background-color: #F65151;
+    color: #FEF4F4;
 }

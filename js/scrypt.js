@@ -54,6 +54,40 @@ function arrInk() {
     maxNumber = colsRows[0] * colsRows[1];
 }
 arrInk()
-console.log(colsRows)
-
 boardGenerator(colsRows, randomNumbers)
+
+
+function eventsForItems() {
+    const allItems = gameBoard.querySelectorAll('.board__item');
+    var clicks = 1;
+    for (let item of allItems) {
+        item.addEventListener('click', function (e) {
+            if (item.innerHTML == clicks) {
+                item.classList.add('_selected');
+                clicks++;
+            } else {
+                e.preventDefault()
+            }
+            function checkWin() {
+                var win;
+                for (let i = 0; i < maxNumber; i++) {
+                    if (allItems[i].classList.contains('_selected')) {
+                        win = true;
+                    } else {
+                        win = false;
+                        break;
+                    }
+                }
+                if (win) {
+                    return win;
+                } else {
+                    return win;
+                }
+            }
+            if (checkWin()) {
+                console.log('ПОБЕДА')
+            }
+        })
+    }
+}
+eventsForItems()

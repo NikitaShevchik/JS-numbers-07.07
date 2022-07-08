@@ -59,7 +59,6 @@ function eventsForItems() {
             if (item.innerHTML == clicks) {
                 item.classList.add('_selected');
                 clicks++;
-                window.navigator.vibrate(200);
             } else {
                 e.preventDefault()
             }

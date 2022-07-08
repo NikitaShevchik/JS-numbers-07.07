@@ -78,13 +78,8 @@ body {
   background-color: #2e2828;
 }
 
-.content {
-  padding: 40px 0;
-  max-width: 1000px;
-  margin: 0 auto;
-}
-
 .guess__body {
+  height: 100vh;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -108,8 +103,8 @@ body {
   color: #2e2828;
   background-color: #FEF4F4;
   border-radius: 5px;
-  width: 50px;
-  height: 50px;
+  width: 60px;
+  height: 60px;
   margin: 2.5px;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -123,6 +118,10 @@ body {
   font-size: 22px;
   -webkit-transition: background-color 0.3s linear;
   transition: background-color 0.3s linear;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
 }
 
 .board__item._selected {

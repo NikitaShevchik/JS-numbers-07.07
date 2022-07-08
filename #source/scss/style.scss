@@ -18,15 +18,12 @@ body{
     }
 }
 .content {
-    padding: 40px 0;
-    max-width: 1000px;
-    margin: 0 auto;
 }
 .main {
 }
 .guess {
-
     &__body {
+        height: 100vh;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -47,14 +44,15 @@ body{
         color: #2e2828;
         background-color: #FEF4F4;
         border-radius: 5px;
-        width: 50px;
-        height: 50px;
+        width: 60px;
+        height: 60px;
         margin: 2.5px;
         display: flex;
         justify-content: center;
         align-items: center;
         font-size: 22px;
         transition: background-color 0.3s linear;
+        user-select: none;
     }
 }
 .board__item._selected{

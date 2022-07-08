@@ -12,6 +12,7 @@ body{
         display: flex;
         justify-content: center;
         align-items: center;
+        
     }
 }
 .board {
@@ -41,10 +42,12 @@ body{
     color: #FEF4F4;
 }
 @media (max-width: 800px) {
+    .guess__body{
+        overflow: hidden;
+    }
     .board__item{
         width: 40px;
         height: 40px;
         font-size: 18px;
     }
-    
 }

@@ -8,12 +8,14 @@ body{
 }
 .guess {
     &__body {
-        height: 100vh;
         display: flex;
         justify-content: center;
         align-items: center;
         
     }
+}
+.content{
+    padding: 80px 0;
 }
 .board {
     &__row {

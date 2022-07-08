@@ -4,8 +4,8 @@ const gameBoard = document.querySelector('.guess__board')
 let colsRows = [2, 2]; // колонки и ряды
 let maxNumber = colsRows[0] * colsRows[1]; //нужно для будущего. Максимальное число (колонки * ряды)
 let randomNumbers = []; // пустой массив для записи сгенерированных чисел (количество чисел - maxNumber)
-let clicks;
-let win;
+let clicks; // клики
+let win; // победа
 /*---------Генерация игрового поля----------*/
 function boardGenerator(arr, arrRandoms) {
     arrRandoms = [];
@@ -48,7 +48,7 @@ function boardGenerator(arr, arrRandoms) {
     boardRowsColsGenerator(arr)
     setTimeout(() => randomArrayGen(arrRandoms), 20);
     setTimeout(() => numberInItems(arrRandoms), 30)
-    setTimeout(eventsForItems, 40)
+    setTimeout(() => eventsForItems(), 40)
 }
 function eventsForItems() {
     const allItems = gameBoard.querySelectorAll('.board__item');
@@ -89,25 +89,19 @@ function arrInk() {
     colsRows = [colsRows[0] + 1, colsRows[1] + 1];
     maxNumber = colsRows[0] * colsRows[1];
 }
-
-
-// arrInk()
-// boardGenerator(colsRows, randomNumbers)
-// eventsForItems()
-
+/*---------Запуск игры----------*/
 boardGenerator(colsRows, randomNumbers)
-
-
-window.addEventListener('keydown', function (e) {
-    if (e.keyCode === 116) {
-        console.log('reload')
-        let rel = confirm('При перезагрузке страницы, вы потеряете ВЕСЬ прогресс. Вы уверены?');
-        if (!rel) {
-            e.preventDefault();
-        }
-    }
-})
-window.onbeforeunload = function () {
-    return false;
-}
+/*---------Предотвращение перезагрузки и Ф5----------*/
+// window.addEventListener('keydown', function (e) {
+//     if (e.keyCode === 116) {
+//         console.log('reload')
+//         let rel = confirm('При перезагрузке страницы, вы потеряете ВЕСЬ прогресс. Вы уверены?');
+//         if (!rel) {
+//             e.preventDefault();
+//         }
+//     }
+// })
+// window.onbeforeunload = function () {
+//     return false;
+// }
 

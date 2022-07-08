@@ -6,21 +6,6 @@
 body{
     background-color: #2e2828;
 }
-.header {
-
-    &__info {
-    }
-
-    &__title {
-    }
-
-    &__text {
-    }
-}
-.content {
-}
-.main {
-}
 .guess {
     &__body {
         height: 100vh;
@@ -28,16 +13,11 @@ body{
         justify-content: center;
         align-items: center;
     }
-
-    &__board {
-    }
 }
 .board {
-
     &__row {
         display: flex;
     }
-
     &__item {
         cursor: pointer;
         font-family: 'Kantumruy Pro', sans-serif;
@@ -59,4 +39,12 @@ body{
     transition: background-color 0.1s linear;
     background-color: #F65151;
     color: #FEF4F4;
+}
+@media (max-width: 800px) {
+    .board__item{
+        width: 40px;
+        height: 40px;
+        font-size: 18px;
+    }
+    
 }

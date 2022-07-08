@@ -91,7 +91,7 @@ body {
 }
 
 .content {
-  padding: 100px 0;
+  padding: 80px 0 0 0;
 }
 
 .board__row {
@@ -119,6 +119,8 @@ body {
       -ms-flex-align: center;
           align-items: center;
   font-size: 22px;
+  -webkit-transition: background-color 0.1s linear;
+  transition: background-color 0.1s linear;
   -webkit-user-select: none;
      -moz-user-select: none;
       -ms-user-select: none;
@@ -126,17 +128,22 @@ body {
 }
 
 .board__item._selected {
+  -webkit-transition: background-color 0.1s linear;
+  transition: background-color 0.1s linear;
   background-color: #F65151;
   color: #FEF4F4;
 }
 
 @media (max-width: 800px) {
-  .guess__body {
-    overflow: hidden;
+  .content {
+    padding: 80px 0 0 0;
+  }
+  .board__row {
+    width: 100%;
   }
   .board__item {
-    width: 40px;
-    height: 40px;
+    width: 45px;
+    height: 45px;
     font-size: 18px;
   }
 }

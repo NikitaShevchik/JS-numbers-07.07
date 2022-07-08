@@ -11,11 +11,10 @@ body{
         display: flex;
         justify-content: center;
         align-items: center;
-        
     }
 }
 .content{
-    padding: 100px 0;
+    padding: 80px 0 0 0;
 }
 .board {
     &__row {
@@ -34,22 +33,25 @@ body{
         justify-content: center;
         align-items: center;
         font-size: 22px;
-        // transition: background-color 0.1s linear;
+        transition: background-color 0.1s linear;
         user-select: none;
     }
 }
 .board__item._selected{
-    // transition: background-color 0.1s linear;
+    transition: background-color 0.1s linear;
     background-color: #F65151;
     color: #FEF4F4;
 }
 @media (max-width: 800px) {
-    .guess__body{
-        overflow: hidden;
+    .content{
+        padding: 80px 0 0 0;
+    }
+    .board__row{
+        width: 100%;
     }
     .board__item{
-        width: 40px;
-        height: 40px;
+        width: 45px;
+        height: 45px;
         font-size: 18px;
     }
 }

@@ -51,12 +51,12 @@ body{
         justify-content: center;
         align-items: center;
         font-size: 22px;
-        transition: background-color 0.3s linear;
+        transition: background-color 0.1s linear;
         user-select: none;
     }
 }
 .board__item._selected{
-    transition: background-color 0.3s linear;
+    transition: background-color 0.1s linear;
     background-color: #F65151;
     color: #FEF4F4;
 }

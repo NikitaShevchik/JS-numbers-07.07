@@ -46,9 +46,9 @@ function boardGenerator(arr, arrRandoms) {
         }
     }
     boardRowsColsGenerator(arr)
-    setTimeout(() => randomArrayGen(arrRandoms), 20);
-    setTimeout(() => numberInItems(arrRandoms), 30)
-    setTimeout(() => eventsForItems(), 40)
+    randomArrayGen(arrRandoms)
+    numberInItems(arrRandoms)
+    eventsForItems()
 }
 function eventsForItems() {
     const allItems = gameBoard.querySelectorAll('.board__item');
@@ -59,28 +59,32 @@ function eventsForItems() {
             if (item.innerHTML == clicks) {
                 item.classList.add('_selected');
                 clicks++;
+                if (clicks == maxNumber + 1) {
+                    arrInk();
+                    boardGenerator(colsRows, randomNumbers);
+                }
             } else {
                 e.preventDefault()
             }
-            function checkWin() {
-                for (let i = 0; i < maxNumber; i++) {
-                    if (allItems[i].classList.contains('_selected')) {
-                        win = true;
-                    } else {
-                        win = false;
-                        break;
-                    }
-                }
-                if (win) {
-                    return win;
-                } else {
-                    return win;
-                }
-            }
-            if (checkWin()) {
-                arrInk();
-                setTimeout(() => boardGenerator(colsRows, randomNumbers), 50)
-            }
+            // function checkWin() {
+            //     for (let i = 0; i < maxNumber; i++) {
+            //         if (allItems[i].classList.contains('_selected')) {
+            //             win = true;
+            //         } else {
+            //             win = false;
+            //             break;
+            //         }
+            //     }
+            //     if (win) {
+            //         return win;
+            //     } else {
+            //         return win;
+            //     }
+            // }
+            // if (checkWin()) {
+            //     arrInk();
+            //     boardGenerator(colsRows, randomNumbers)
+            // }
         })
     }
 }
@@ -91,6 +95,8 @@ function arrInk() {
 }
 /*---------Запуск игры----------*/
 boardGenerator(colsRows, randomNumbers)
+
+
 /*---------Предотвращение перезагрузки и Ф5----------*/
 // window.addEventListener('keydown', function (e) {
 //     if (e.keyCode === 116) {

@@ -15,7 +15,7 @@ body{
     }
 }
 .content{
-    padding: 80px 0;
+    padding: 100px 0;
 }
 .board {
     &__row {
@@ -34,12 +34,12 @@ body{
         justify-content: center;
         align-items: center;
         font-size: 22px;
-        transition: background-color 0.1s linear;
+        // transition: background-color 0.1s linear;
         user-select: none;
     }
 }
 .board__item._selected{
-    transition: background-color 0.1s linear;
+    // transition: background-color 0.1s linear;
     background-color: #F65151;
     color: #FEF4F4;
 }
